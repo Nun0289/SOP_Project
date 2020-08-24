@@ -27,7 +27,7 @@ public class TicTacToe {
             Scanner scan = new Scanner(System.in);
             System.out.println("Enter your placement (1-9):");
             int playPos = scan.nextInt();
-            while (playerPositions.contains(playPos) || cpuPositions.contains(playerPositions)) {
+            while (playerPositions.contains(playPos) || cpuPositions.contains(playPos)) {
                 System.out.println("position taken! Enter a correct Position");
                 playPos = scan.nextInt();
             }
@@ -65,12 +65,13 @@ public class TicTacToe {
     }
 
     public static void placePiece(char[][] gameBoard, int pos, String user) {
+        Copymark cloneXO = new Copymark();
         char symbol = ' ';
         if (user.equals("player")) {
-            symbol = 'X';
+            symbol = cloneXO.copy('X').getShape();
             playerPositions.add(pos);
         } else if (user.equals("cpu")) {
-            symbol = 'O';
+            symbol = cloneXO.copy('O').getShape();    
             cpuPositions.add(pos);
         }
         switch (pos) {
