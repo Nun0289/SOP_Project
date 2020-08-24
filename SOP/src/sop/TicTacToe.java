@@ -22,12 +22,7 @@ public class TicTacToe {
     static ArrayList<Integer> cpuPositions = new ArrayList<Integer>();
 
     public static void main(String[] args) {
-        char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
-        {'-', '+', '-', '+', '-'},
-        {' ', '|', ' ', '|', ' '},
-        {'-', '+', '-', '+', '-'},
-        {' ', '|', ' ', '|', ' '}
-        };
+        char[][] gameBoard = Singleton_gameboard.getInstance();
         while (true) {
             Scanner scan = new Scanner(System.in);
             System.out.println("Enter your placement (1-9):");
